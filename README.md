@@ -30,10 +30,16 @@ Continue reading this section to learn how the code works.
 Libraries
 Start by including the required libraries: the Adafruit_Sensor and Adafruit_MPU6050 to interface with the BME280 sensor; the painlessMesh library to handle the mesh network and the Arduino_JSON to create and handle JSON strings easily.
 
-#include <Adafruit_Sensor.h>
-#include <Adafruit_BME280.h>
 #include "painlessMesh.h"
 #include <Arduino_JSON.h>
+
+#include "painlessMesh.h"
+//#include <Arduino_JSON.h>
+
+#include <Adafruit_Sensor.h>
+#include <Adafruit_MPU6050.h>
+#include <Wire.h>
+
 Mesh details
 Insert the mesh details in the following lines.
 
@@ -44,12 +50,12 @@ The MESH_PREFIX refers to the name of the mesh. You can change it to whatever yo
 
 The MESH_PORT refers to the the TCP port that you want the mesh server to run on. The default is 5555.
 
-BME280
-Create an Adafruit_BME280 object called bme on the default ESP32 or ESP8266 pins.
+mpu6050
+Create an Adafruit_mpu6050object called bme on the default ESP32 or ESP8266 pins.
 
 
 
-Adafruit_BME280 bme;
+Adafruit_MPU6050 mpu;
 In the nodeNumber variable insert the node number for your board. It must be a different number for each board.
 
 int nodeNumber = 2;
@@ -98,8 +104,8 @@ void sendMessage () {
   String msg = getReadings();
   mesh.sendBroadcast(msg);
 }
-Init BME280 sensor
-The initBME() function initializes the MPU6050 sensor.
+Init mpu6050 sensor
+The initmpu() function initializes the MPU6050 sensor.
 
 //Init MPU6050
 void initmpu(){
