@@ -13,11 +13,15 @@ Jumper wires
 THE BELOW IMAGE IS DESIGNED WITH AN EXAMPLE OF BME 280 SENSOR BUT HERE IN THIS ARTICLE IAM EXPLAINING WITH MPU 650 AND THE BLOCK DIAGRAM FOR IT IS ALSO ATTACHED BELOW 
 ![image](https://user-images.githubusercontent.com/93335682/171458175-93b872b9-c466-4bdc-ac89-9b5d9935ee10.png)
 
+Any preferred sensor, such as BME280, BME680, LM35, and MPU6050, can be used but for this article, we will use a MPU6050 sensor which will be used to measure the ambient temperature
+
+The ESP8266 board will be assigned as Node 1 and the ESP32 boards will assigned Node 2, Node 3 and Node 4 respectively. Each node will receive ACCELERATION POSTION readings of the other nodes.
 
 
 
 
-BLOCK DIAGRAM OF INDIVIDUAL NODE 
+
+BLOCK DIAGRAM OF INDIVIDUAL NODE USING MPU6050
 ![image](https://user-images.githubusercontent.com/93335682/171457296-b6cc8e99-2066-470a-93ed-9129f2e6bd66.png)
 
 
